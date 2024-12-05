@@ -29,6 +29,8 @@ const SearchBar = ({ setSearchResults }: SearchBarProps) => {
           weight: data.weight,
         },
       ]);
+      // Limpiar el campo de búsqueda
+      setSearch("");
     } catch (error) {
       // Manejar errores específicos
       if (axios.isAxiosError(error)) {
