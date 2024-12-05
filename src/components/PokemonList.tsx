@@ -2,10 +2,12 @@ import React from "react";
 import PokemonCard from "./PokemonCard";
 import { Pokemon } from "../types/Pokemon";
 
+// Propiedades que recibe el componente PokemonList
 interface PokemonListProps {
   results: Pokemon[];
 }
 
+// Componente que muestra una lista de Pokémon
 const PokemonList = ({ results }: PokemonListProps) => {
   if (results.length === 0) {
     return (
@@ -17,11 +19,9 @@ const PokemonList = ({ results }: PokemonListProps) => {
 
   return (
     <div className="flex justify-center items-center mt-6 min-h-[50vh]">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {results.map((pokemon, index) => (
           <PokemonCard key={index} pokemon={pokemon} />
         ))}
-      </div>
     </div>
   );
 };

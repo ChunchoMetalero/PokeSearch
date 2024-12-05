@@ -1,10 +1,12 @@
 import React from "react";
 import { Pokemon } from "../types/Pokemon";
 
+// Propiedades que recibe el componente PokemonCard
 interface PokemonCardProps {
   pokemon: Pokemon;
 }
 
+// Componente que muestra la información de un Pokémon
 const PokemonCard = ({ pokemon }: PokemonCardProps) => {
   const capitalizedName =
     pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
@@ -31,10 +33,11 @@ const PokemonCard = ({ pokemon }: PokemonCardProps) => {
         {capitalizedName}
       </h2>
       <p className="text-center text-gray-600">
-        <strong>Pokedex Number:</strong> {pokemon.id}
+        <strong>Pokédex Number:</strong> {pokemon.id}
       </p>
       <p className="text-center text-gray-600">
-        <strong>Weight:</strong> {pokemon.weight} kg
+        {/* Convertir el peso a kilogramos */}
+        <strong>Weight:</strong> {pokemon.weight / 10} kg
       </p>
       <p className="text-center text-gray-600">
         <strong>Types:</strong> {pokemon.types.join(", ")}

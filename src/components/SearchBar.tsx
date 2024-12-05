@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Pokemon } from "../types/Pokemon";
 
+// Propiedades que recibe el componente SearchBar
 interface SearchBarProps {
   setSearchResults: (results: Pokemon[]) => void;
 }
 
+// Componente que muestra una barra de búsqueda
 const SearchBar = ({ setSearchResults }: SearchBarProps) => {
+  // Estado para almacenar el valor de la búsqueda
   const [search, setSearch] = useState("");
 
+  // Función que maneja la búsqueda de un Pokémon
   const handleSearch = async () => {
     try {
       const { data } = await axios.get(
@@ -29,36 +33,38 @@ const SearchBar = ({ setSearchResults }: SearchBarProps) => {
       // Manejar errores específicos
       if (axios.isAxiosError(error)) {
         if (error.response?.status === 404) {
-          // Mostrar un mensaje amigable si es un error 404
+          // Mostrar un mensaje si es un error 404
           alert("No Pokémon found. Try searching for another one!");
         } else {
-          // Manejar otros errores de Axios
+          // Para cualquier otro error de respuesta de axios
           alert("An error occurred. Please try again later.");
         }
       } else {
-        // Manejar cualquier otro tipo de error inesperado
+        // Manejar cualquier otro error inesperado
         alert("An error occurred. Please try again later.");
       }
     }
   };
 
   return (
-    <div className="flex justify-center items-center mt-10">
+    <div>
       <form
         className="flex shadow-md"
         onSubmit={(e) => {
-          e.preventDefault(); // Evitar el comportamiento predeterminado
-          handleSearch(); // Llamar a la función de búsqueda
+          // Prevenir el envío del formulario
+          e.preventDefault(); 
+          // Realizar la búsqueda
+          handleSearch(); 
         }}
       >
         <input
           type="text"
           placeholder="Search for a Pokémon"
           className="border border-gray-300 focus:ring-2 focus:ring-blue-400 p-2 rounded-l-md text-gray-700 focus:outline-none w-64"
-          value={search}
+          value={search} 
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button
+        <button 
           type="submit"
           className="bg-blue-500 hover:bg-blue-600 text-white font-semibold p-2 rounded-r-md"
         >
