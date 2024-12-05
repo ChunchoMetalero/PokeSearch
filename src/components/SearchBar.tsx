@@ -62,7 +62,7 @@ const SearchBar = ({ setSearchResults }: SearchBarProps) => {
         <input
           type="text"
           placeholder="Search for a Pokémon"
-          className="border border-gray-300 focus:ring-2 focus:ring-blue-400 p-2 rounded-l-md text-gray-700 focus:outline-none w-64"
+          className="border border-gray-300 focus:ring-2 focus:ring-blue-400 p-2 rounded-l-md text-gray-700 focus:outline-none w-80"
           value={search} 
           onChange={(e) => setSearch(e.target.value)}
         />

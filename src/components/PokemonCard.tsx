@@ -12,20 +12,20 @@ const PokemonCard = ({ pokemon }: PokemonCardProps) => {
     pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
 
   return (
-    <div className="border rounded-lg p-6 bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 w-80">
+    <div className="border rounded-lg p-6 bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 w-90">
       <div className="flex justify-center space-x-4 mb-4">
         {pokemon.image_front && (
           <img
             src={pokemon.image_front}
             alt={pokemon.name}
-            className="w-24 h-24"
+            className="w-40 h-40"
           />
         )}
         {pokemon.image_back && (
           <img
             src={pokemon.image_back}
             alt={`${pokemon.name} back`}
-            className="w-24 h-24"
+            className="w-40 h-40"
           />
         )}
       </div>
