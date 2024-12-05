@@ -4,8 +4,9 @@ import React, { useState } from "react";
 import SearchBar from "../components/SearchBar";
 import PokemonList from "../components/PokemonList";
 import { Pokemon } from "../types/Pokemon";
-import "./out.css";
+import "./styles.css";
 
+// Pagina principal que renderiza el componente SearchBar y PokemonList
 const Page = () => {
     const [searchResults, setSearchResults] = useState<Pokemon[]>([]);
     
